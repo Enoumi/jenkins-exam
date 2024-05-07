@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
         - name: movie-service
-          image: esther237/python:movie
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8000
           env:
+            - name: CAST_SERVICE_HOST_URL
+              value: http://cast-service-cast-service:8002/
             - name: DATABASE_URI
-              value: "postgresql://movie_db_username:movie_db_password@movie_db/movie_db_dev"
+              value: "postgresql://movie_db_username:movie_db_password@movie-db-movie-db/movie_db_dev"

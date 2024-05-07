@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-movie-service
 spec:
+  type: {{ .Values.service.type}}
   selector:
     app: movie-service
   ports:

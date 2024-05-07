@@ -1,7 +1,11 @@
-# charts/movie-service/values.yaml
+# cast-service/values.yaml
 replicaCount: 1
 
-database:
-  username: movie_db_username
-  password: movie_db_password
-  name: movie_db_dev
+image:
+  repository: esther237/python
+  tag: movie
+
+databaseURI: "postgresql://cast_db_username:cast_db_password@movie-db-movie-db/cast_db_dev"
+
+service:
+  type: NodePort
