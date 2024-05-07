@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cast-service-deployment
+spec:
+  replicas: 1  # Nombre de réplicas selon vos besoins
+  selector:
+    matchLabels:
+      app: cast-service
+  template:
+    metadata:
+      labels:
+        app: cast-service
+    spec:
+      containers:
+      - name: cast-service
+        image: esther237/python:cast
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URI
+          value: "postgresql://cast_db_username:cast_db_password@cast_db/cast_db_dev" # Remplacez par les vraies valeurs de connexion à la base de données
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cast-service
+spec:
+  selector:
+    app: cast-service
+  ports:
+    - protocol: TCP
+      port: 8002
+      targetPort: 8000
+

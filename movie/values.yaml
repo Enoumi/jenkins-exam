@@ -1,0 +1,7 @@
+# charts/movie-service/values.yaml
+replicaCount: 1
+
+database:
+  username: movie_db_username
+  password: movie_db_password
+  name: movie_db_dev

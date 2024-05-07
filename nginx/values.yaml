@@ -1,0 +1,5 @@
+# charts/nginx/values.yaml
+replicaCount: 1
+
+nginx:
+  image: nginx:latest

@@ -1,0 +1,12 @@
+# charts/cast-db/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-cast-db
+spec:
+  selector:
+    app: cast-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

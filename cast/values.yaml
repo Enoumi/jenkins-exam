@@ -1,0 +1,11 @@
+# cast-service/values.yaml
+replicaCount: 1
+
+image:
+  repository: esther237/python
+  tag: cast
+
+databaseURI: "postgresql://cast_db_username:cast_db_password@cast_db/cast_db_dev"
+
+service:
+  type: NodePort

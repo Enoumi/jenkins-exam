@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: movie-db-statefulset
+spec:
+  serviceName: movie-db
+  replicas: 1  # Nombre de réplicas selon vos besoins
+  selector:
+    matchLabels:
+      app: movie-db
+  template:
+    metadata:
+      labels:
+        app: movie-db
+    spec:
+      containers:
+      - name: movie-db
+        image: postgres:12.1-alpine
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "movie_db_username" # Remplacez par le vrai nom d'utilisateur de la base de données
+        - name: POSTGRES_PASSWORD
+          value: "movie_db_password" # Remplacez par le vrai mot de passe de la base de données
+        - name: POSTGRES_DB
+          value: "movie_db_dev" # Remplacez par le vrai nom de la base de données
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: movie-db
+spec:
+  selector:
+    app: movie-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+

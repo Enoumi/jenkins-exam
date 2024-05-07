@@ -1,0 +1,7 @@
+# charts/cast-db/values.yaml
+replicaCount: 1
+
+database:
+  username: cast_db_username
+  password: cast_db_password
+  name: cast_db_dev

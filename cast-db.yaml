@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cast-db-statefulset
+spec:
+  serviceName: cast-db
+  replicas: 1  # Nombre de réplicas selon vos besoins
+  selector:
+    matchLabels:
+      app: cast-db
+  template:
+    metadata:
+      labels:
+        app: cast-db
+    spec:
+      containers:
+      - name: cast-db
+        image: postgres:12.1-alpine
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "cast_db_username" # Remplacez par le vrai nom d'utilisateur de la base de données
+        - name: POSTGRES_PASSWORD
+          value: "cast_db_password" # Remplacez par le vrai mot de passe de la base de données
+        - name: POSTGRES_DB
+          value: "cast_db_dev" # Remplacez par le vrai nom de la base de données
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cast-db
+spec:
+  selector:
+    app: cast-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+
