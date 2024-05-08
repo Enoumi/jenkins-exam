@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Contrôleur' } // Jenkins will be able to select all available agents
+    agent any // Jenkins will be able to select all available agents
     environment {
         // Declaration of environment variables
         DOCKER_ID = "esther237" // replace this with your docker-id
