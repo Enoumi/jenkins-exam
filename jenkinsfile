@@ -352,7 +352,6 @@
                     cat values.yml
                     helm upgrade --install app nginx --values=values.yml --namespace prod
                     '''
-                }
             }
         }
     }
