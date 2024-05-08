@@ -1,0 +1,11 @@
+# Utilisez l'image Python 3.8-slim comme base
+FROM python:3.8-slim
+
+# Indique le répertoire de travail pour l'application dans l'image
+WORKDIR /app
+
+# Copie votre code source Python dans l'image
+COPY . /app
+
+# Commande pour exécuter votre application, par exemple :
+CMD ["python", "app.py"]
