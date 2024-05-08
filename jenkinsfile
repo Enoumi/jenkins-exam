@@ -12,7 +12,6 @@ pipeline {
                 script {
                     sh '''
                     docker rm -f jenkins
-                    docker rmi $(docker images -q)
                     docker build -t $DOCKER_ID/$DOCKER_IMAGE:cast.$DOCKER_TAG  -f Dockerfile ./cast-service
                     docker build -t $DOCKER_ID/$DOCKER_IMAGE:movie.$DOCKER_TAG  -f Dockerfile ./movie-service
                     sleep 6
