@@ -64,8 +64,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp cast/values.yaml values.yml
-                    cat values.yml
+                    cp cast/values.yaml cast/values.yml
+                    cat cast/values.yml
                     sed -i "s+tag.*+tag: cast.${DOCKER_TAG}+g" values.yml
                     helm upgrade --install app cast-service --values=values.yml --namespace dev
                     '''
@@ -83,8 +83,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp movie/values.yaml values.yml
-                    cat values.yml
+                    cp movie/values.yaml movie/values.yml
+                    cat movie/values.yml
                     sed -i "s+tag.*+tag: movie.${DOCKER_TAG}+g" values.yml
                     helm upgrade --install app movie-service --values=values.yml --namespace dev
                     '''
@@ -102,8 +102,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp movie-db/values.yaml values.yml
-                    cat values.yml
+                    cp movie-db/values.yaml movie-db/values.yml
+                    cat movie-db/values.yml
                     helm upgrade --install app movie-db --values=values.yml --namespace dev
                     '''
                 }
@@ -120,8 +120,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp cast-db/values.yaml values.yml
-                    cat values.yml
+                    cp cast-db/values.yaml cast-db/values.yml
+                    cat cast-d/values.yml
                     helm upgrade --install app cast-db --values=values.yml --namespace dev
                     '''
                 }
@@ -138,8 +138,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp nginx/values.yaml values.yml
-                    cat values.yml
+                    cp nginx/values.yaml nginx/values.yml
+                    cat nginx/values.yml
                     helm upgrade --install app nginx --values=values.yml --namespace dev
                     '''
                 }
@@ -156,8 +156,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp cast/values.yaml values.yml
-                    cat values.yml
+                    cp cast/values.yaml cast/values.yml
+                    cat cast/values.yml
                     sed -i "s+tag.*+tag: cast.${DOCKER_TAG}+g" values.yml
                     helm upgrade --install app cast-service --values=values.yml --namespace staging
                     '''
