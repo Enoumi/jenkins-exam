@@ -23,8 +23,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker run -d -p 7001:8000 --name jenkins-cast-05 $DOCKER_ID/$DOCKER_IMAGE:cast.$DOCKER_TAG
-                    docker run -d -p 7002:8000 --name jenkins-movie-06 $DOCKER_ID/$DOCKER_IMAGE:movie.$DOCKER_TAG
+                    docker run -d -p 7002:8000 --name jenkins-cast-06 $DOCKER_ID/$DOCKER_IMAGE:cast.$DOCKER_TAG
+                    docker run -d -p 7002:8000 --name jenkins-movie-07 $DOCKER_ID/$DOCKER_IMAGE:movie.$DOCKER_TAG
                     sleep 10
                     '''
                 }
@@ -121,7 +121,7 @@ pipeline {
                     ls
                     cat $KUBECONFIG > .kube/config
                     cp cast-db/values.yaml cast-db/values.yml
-                    cat cast-d/values.yml
+                    cat cast-db/values.yml
                     helm upgrade --install cast-db cast-db --values=values.yml --namespace dev
                     '''
                 }
@@ -175,8 +175,8 @@ pipeline {
                     mkdir .kube
                     ls
                     cat $KUBECONFIG > .kube/config
-                    cp movie/values.yaml values.yml
-                    cat values.yml
+                    cp movie/values.yaml movie/values.yml
+                    cat movie/values.yml
                     sed -i "s+tag.*+tag: movie.${DOCKER_TAG}+g" values.yml
                     helm upgrade --install movie-service movie --values=values.yml --namespace staging
                     '''
