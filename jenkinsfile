@@ -23,8 +23,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker run -d -p 8009:8000 --name jenkins-cast-04 $DOCKER_ID/$DOCKER_IMAGE:cast.$DOCKER_TAG
-                    docker run -d -p 80010:8000 --name jenkins-movie-04 $DOCKER_ID/$DOCKER_IMAGE:movie.$DOCKER_TAG
+                    docker run -d -p 7001:8000 --name jenkins-cast-05 $DOCKER_ID/$DOCKER_IMAGE:cast.$DOCKER_TAG
+                    docker run -d -p 7002:8000 --name jenkins-movie-06 $DOCKER_ID/$DOCKER_IMAGE:movie.$DOCKER_TAG
                     sleep 10
                     '''
                 }
