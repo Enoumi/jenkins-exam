@@ -67,7 +67,7 @@ pipeline {
                     cp cast/values.yaml cast/values.yml
                     cat cast/values.yml
                     sed -i "s+tag.*+tag: cast.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app cast-service --values=values.yml --namespace dev
+                    helm upgrade --install cast-service cast --values=values.yml --namespace dev
                     '''
                 }
             }
@@ -86,7 +86,7 @@ pipeline {
                     cp movie/values.yaml movie/values.yml
                     cat movie/values.yml
                     sed -i "s+tag.*+tag: movie.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app movie-service --values=values.yml --namespace dev
+                    helm upgrade --install movie-service movie --values=values.yml --namespace dev
                     '''
                 }
             }
@@ -104,7 +104,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp movie-db/values.yaml movie-db/values.yml
                     cat movie-db/values.yml
-                    helm upgrade --install app movie-db --values=values.yml --namespace dev
+                    helm upgrade --install movie-db movie-db --values=values.yml --namespace dev
                     '''
                 }
             }
@@ -122,7 +122,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp cast-db/values.yaml cast-db/values.yml
                     cat cast-d/values.yml
-                    helm upgrade --install app cast-db --values=values.yml --namespace dev
+                    helm upgrade --install cast-db cast-db --values=values.yml --namespace dev
                     '''
                 }
             }
@@ -140,7 +140,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp nginx/values.yaml nginx/values.yml
                     cat nginx/values.yml
-                    helm upgrade --install app nginx --values=values.yml --namespace dev
+                    helm upgrade --install nginx nginx --values=values.yml --namespace dev
                     '''
                 }
             }
@@ -159,7 +159,7 @@ pipeline {
                     cp cast/values.yaml cast/values.yml
                     cat cast/values.yml
                     sed -i "s+tag.*+tag: cast.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app cast-service --values=values.yml --namespace staging
+                    helm upgrade --install cast-service cast --values=values.yml --namespace staging
                     '''
                 }
             }
@@ -178,7 +178,7 @@ pipeline {
                     cp movie/values.yaml values.yml
                     cat values.yml
                     sed -i "s+tag.*+tag: movie.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app movie-service --values=values.yml --namespace staging
+                    helm upgrade --install movie-service movie --values=values.yml --namespace staging
                     '''
                 }
             }
@@ -196,7 +196,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp movie-db/values.yaml values.yml
                     cat values.yml
-                    helm upgrade --install app movie-db --values=values.yml --namespace staging
+                    helm upgrade --install movie-db movie-db --values=values.yml --namespace staging
                     '''
                 }
             }
@@ -214,7 +214,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp cast-db/values.yaml values.yml
                     cat values.yml
-                    helm upgrade --install app cast-db --values=values.yml --namespace staging
+                    helm upgrade --install cast-db cast-db --values=values.yml --namespace staging
                     '''
                 }
             }
@@ -232,7 +232,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp nginx/values.yaml values.yml
                     cat values.yml
-                    helm upgrade --install app nginx --values=values.yml --namespace staging
+                    helm upgrade --install nginx nginx --values=values.yml --namespace staging
                     '''
                 }
             }
@@ -256,7 +256,7 @@ pipeline {
                     cp cast/values.yaml values.yml
                     cat values.yml
                     sed -i "s+tag.*+tag: cast.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app cast-service --values=values.yml --namespace prod
+                    helm upgrade --install cast-service cast --values=values.yml --namespace prod
                     '''
                 }
             }
@@ -280,7 +280,7 @@ pipeline {
                     cp movie/values.yaml values.yml
                     cat values.yml
                     sed -i "s+tag.*+tag: movie.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app movie-service --values=values.yml --namespace prod
+                    helm upgrade --install movie-service movie --values=values.yml --namespace prod
                     '''
                 }
             }
@@ -304,7 +304,7 @@ pipeline {
                     cp movie-db/values.yaml values.yml
                     cat values.yml
                     sed -i "s+tag.*+tag: movie-db.${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app movie-db --values=values.yml --namespace prod
+                    helm upgrade --install movie-db movie-db --values=values.yml --namespace prod
                     '''
                 }
             }
@@ -327,7 +327,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp cast-db/values.yaml values.yml
                     cat values.yml
-                    helm upgrade --install app cast-db --values=values.yml --namespace prod
+                    helm upgrade --install cast-db cast-db --values=values.yml --namespace prod
                     '''
                 }
             }
@@ -350,7 +350,7 @@ pipeline {
                     cat $KUBECONFIG > .kube/config
                     cp nginx/values.yaml values.yml
                     cat values.yml
-                    helm upgrade --install app nginx --values=values.yml --namespace prod
+                    helm upgrade --install nginx nginx --values=values.yml --namespace prod
                     '''
                 }
             }
